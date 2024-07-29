@@ -1,0 +1,107 @@
+{
+  "/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.16",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {},
+    "composeServiceName": null,
+    "servicePath": "/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "serverless-example",
+      "plugins": [
+        "serverless-plugin-optimize",
+        "serverless-offline",
+        "serverless-plugin-warmup"
+      ],
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs14.x",
+        "stage": "dev",
+        "region": "us-east-1",
+        "versionFunctions": true
+      },
+      "functions": {
+        "main": {
+          "handler": "dist/apps/ecom-serverless/main.handler",
+          "events": [
+            {
+              "http": {
+                "method": "ANY",
+                "path": "/"
+              }
+            },
+            {
+              "http": {
+                "method": "ANY",
+                "path": "{proxy+}"
+              }
+            }
+          ],
+          "name": "serverless-example-dev-main"
+        },
+        "user": {
+          "handler": "dist/apps/user/main.handler",
+          "events": [
+            {
+              "http": {
+                "method": "ANY",
+                "path": "/user"
+              }
+            },
+            {
+              "http": {
+                "method": "ANY",
+                "path": "{proxy+}"
+              }
+            }
+          ],
+          "name": "serverless-example-dev-user"
+        }
+      }
+    },
+    "serviceRawFile": "service: serverless-example\n\nplugins:\n  - serverless-plugin-optimize\n  - serverless-offline\n  - serverless-plugin-warmup\n\nprovider:\n  name: aws\n  runtime: nodejs14.x\n\nfunctions:\n  main:\n    handler: dist/apps/ecom-serverless/main.handler\n    events:\n      - http:\n          method: ANY\n          path: /\n      - http:\n          method: ANY\n          path: '{proxy+}'\n  user:\n    handler: dist/apps/user/main.handler\n    events:\n      - http:\n          method: ANY\n          path: /user\n      - http:\n          method: ANY\n          path: '{proxy+}'",
+    "command": [
+      "offline"
+    ],
+    "options": {
+      "lambdaPort": "3003",
+      "httpPort": "3004",
+      "websocketPort": "3005"
+    },
+    "error": {
+      "message": "New route /dev/{proxy*} conflicts with existing /dev/{proxy*}",
+      "stack": "AssertError: New route /dev/{proxy*} conflicts with existing /dev/{proxy*}\n    at internals.Segment.add (/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/@hapi/call/lib/segment.js:66:14)\n    at internals.Segment.add (/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/@hapi/call/lib/segment.js:60:44)\n    at internals.Router.add (/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/@hapi/call/lib/index.js:65:16)\n    at internals.Server._addRoute (/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/@hapi/hapi/lib/server.js:529:46)\n    at internals.Server.route (/home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/@hapi/hapi/lib/server.js:518:22)\n    at HttpServer.createRoutes (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/events/http/HttpServer.js:1105:18)\n    at #createEvent (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/events/http/Http.js:41:22)\n    at file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/events/http/Http.js:46:24\n    at Array.forEach (<anonymous>)\n    at Http.create (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/events/http/Http.js:45:12)\n    at #createHttp (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/ServerlessOffline.js:192:16)\n    at async Promise.all (index 0)\n    at async ServerlessOffline.start (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/ServerlessOffline.js:98:5)\n    at async #startWithExplicitEnd (file:///home/longnt/Documents/savvy/works/serverless-mono/ecom-serverless/node_modules/serverless-offline/src/ServerlessOffline.js:154:5)\n    at async PluginManager.runHooks (file:///home/longnt/.serverless/releases/4.1.16/package/dist/sf-core.js:854:9296)\n    at async PluginManager.invoke (file:///home/longnt/.serverless/releases/4.1.16/package/dist/sf-core.js:854:10066)"
+    },
+    "params": {},
+    "machineId": "5725afd287ddb723d916e8613fa10fde",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "057e05b0-ec30-45f2-a674-eeeee8fb6f69",
+    "orgName": "vsb12345",
+    "userId": "r0W5yYXNgj96x8KlkV",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "vsb12345",
+    "subscription": null,
+    "userEmail": "longn7284@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "872811900778",
+    "versionSf": "4.1.16",
+    "serviceProviderAwsCfStackName": "serverless-example-dev",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

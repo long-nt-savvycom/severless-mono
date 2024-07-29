@@ -1,0 +1,30 @@
+service: serverless-example
+
+plugins:
+  - serverless-plugin-optimize
+  - serverless-offline
+  - serverless-plugin-warmup
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  main:
+    handler: dist/apps/ecom-serverless/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
+  user:
+    handler: dist/apps/user/main.handler
+    events:
+      - http:
+          method: ANY
+          path: /user
+      - http:
+          method: ANY
+          path: '/user/{proxy+}'
